@@ -2,22 +2,21 @@ package hmm.commands;
 
 import hmm.utils.Log;
 
-class HelpCommand implements ICommand {
-  public var type(default, null) = "help";
+class HelpCommand implements ICommand
+{
+	public var type(default, null) = "help";
 
-  public function new() {
-  }
+	public function new() {}
 
-  public function run(args : Array<String>) {
-    if (args.length == 0) {
-      Hmm.printUsageAndExit(0);
-    } else {
-      Hmm.printUsagesAndExit(args, 0);
-    }
-  }
+	public function run(args:Array<String>)
+		if (args.length == 0)
+			Hmm.printUsageAndExit(0);
+		else
+			Hmm.printUsagesAndExit(args, 0);
 
-  public function getUsage() {
-    return 'shows a usage message
+	public function getUsage()
+	{
+		return 'shows a usage message
 
         usage:
 
@@ -32,5 +31,5 @@ class HelpCommand implements ICommand {
         hmm help clean
         hmm help clean check
 ';
-  }
+	}
 }

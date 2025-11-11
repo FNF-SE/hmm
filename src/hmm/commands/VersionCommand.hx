@@ -2,27 +2,23 @@ package hmm.commands;
 
 import haxe.Json;
 import haxe.io.Path;
-
 import sys.io.File;
-
 import hmm.HmmConfig;
 import hmm.utils.Shell;
 import hmm.utils.Log;
 
-class VersionCommand implements ICommand {
-  public var type(default, null) = "version";
+class VersionCommand implements ICommand
+{
+	public var type(default, null) = "version";
 
-  public function new() {
-  }
+	public function new() {}
 
-  public function run(args : Array<String>) {
-    
-    Log.println(HmmConfigs.getVersion());
-    Log.println('Funkin\' Crew Edition');
-    Log.println(HmmConfigs.getHmmGitRef());
-  }
+	public function run(args:Array<String>)
+	{
+		Log.println(HmmConfigs.getVersion());
+		Log.println(HmmConfigs.getHmmGitRef());
+	}
 
-  public function getUsage() {
-    return 'print hmm version';
-  }
+	public function getUsage()
+		return 'print hmm version';
 }

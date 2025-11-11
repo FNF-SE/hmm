@@ -1,8 +1,8 @@
 package hmm.commands;
 
 using StringTools;
-import haxe.ds.Option;
 
+import haxe.ds.Option;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -15,35 +15,36 @@ import hmm.errors.ValidationError;
 import hmm.utils.Shell;
 import hmm.utils.Log;
 
-class DevCommand implements ICommand {
-  public var type(default, null) = "dev";
+class DevCommand implements ICommand
+{
+	public var type(default, null) = "dev";
 
-  public function new() {
-  }
+	public function new() {}
 
-  public function run(args : Array<String>) {
-    Shell.ensureHmmJsonExists();
-    Shell.createLocalHaxelibRepoIfNotExists();
+	public function run(args:Array<String>)
+	{
+		Shell.ensureHmmJsonExists();
+		Shell.createLocalHaxelibRepoIfNotExists();
 
-    if (args.length != 2) {
-      throw new ValidationError('$type command requires 2 arguments: <name> and <path>', 1);
-    }
+		if (args.length != 2)
+			throw new ValidationError('$type command requires 2 arguments: <name> and <path>', 1);
 
-    var name : String = args[0];
-    var path : String = args[1];
+		var name:String = args[0];
+		var path:String = args[1];
 
-    // Add the library to the hmm.json
-    HmmConfigs.addDependencyOrThrow(Dev(name, path));
+		// Add the library to the hmm.json
+		HmmConfigs.addDependencyOrThrow(Dev(name, path));
 
-    // Install the library
-    Shell.haxelibDev(name, path, { log: true, throwError: true });
+		// Install the library
+		Shell.haxelibDev(name, path, {log: true, throwError: true});
 
-    // Show the resulting haxelib list
-    Shell.haxelibList({ log: true, throwError: true });
-  }
+		// Show the resulting haxelib list
+		Shell.haxelibList({log: true, throwError: true});
+	}
 
-  public function getUsage() {
-    return 'adds a "dev" dependency to hmm.json, and installs the dependency using `haxelib dev`
+	public function getUsage()
+	{
+		return 'adds a "dev" dependency to hmm.json, and installs the dependency using `haxelib dev`
 
         usage: hmm dev <name> <path>
 
@@ -55,6 +56,5 @@ class DevCommand implements ICommand {
 
         hmm dev thx.core /my/path/thx.core
 ';
-  }
+	}
 }
-
