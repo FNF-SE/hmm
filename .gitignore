@@ -1,0 +1,9 @@
+# Node
+node_modules
+
+# Haxe
+.haxelib
+
+# Project files
+bin/
+hmm.zip
