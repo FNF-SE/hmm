@@ -14,26 +14,6 @@ Haxe libs in a `.haxelib` directory. See `haxelib newrepo` for more
 details on this. It also uses `haxelib` itself for actually installing
 libraries (both from lib.haxe.org and via git/hg/etc.).
 
-## Notes on "Funkin' Crew Edition" differences
-
-A series of changes made internally at Funkin' Crew Inc. such as bugfixes, QoL, code cleanup. Ideally these can be merged into the base hmm!
-
-### Funkin' Crew Edition Usage
-If you want to use the Funkin' Crew Edition of `hmm`
-```
-haxelib git hmm https://github.com/FunkinCrew/hmm.git funkin-patches
-haxelib run hmm setup
-hmm version # 3.1.0 Funkin' Crew Edition
-```
-
-### Funkin' Crew Fixes
-- When `haxelib path` returns an error when running `hmm install` or `hmm reinstall`, 
-we just assume that the library wasn't installed correctly the first time, so we install it 
-as if it was never installed.
-- Fix for checking haxelib git remotes. Previous behaviour would take a ssh formed git remote url and an https formed git remote would be different, even if they lead to the same place. This affects users who might have a git config that automatically changes remote urls to ssh versions, and accomodates for them.
-- Adds SHA1 to `hmm version` command
-- Allow `-q/--quiet` to be passed through to the `haxelib` commands when using `hmm reinstall`
-
 # Installing hmm
 
 ```
