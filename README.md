@@ -17,7 +17,7 @@ libraries (both from lib.haxe.org and via git/hg/etc.).
 # Installing hmm
 
 ```
-> haxelib --global install hmm
+> haxelib --global git hmm https://github.com/FNF-SE/hmm
 > haxelib --global run hmm setup
 ```
 
@@ -39,7 +39,7 @@ rather than:
 
 ```sh
 # Make sure hmm is installed (only needed once)
-> haxelib --global install hmm
+> haxelib --global git hmm https://github.com/FNF-SE/hmm
 > haxelib --global run hmm setup
 ```
 
